@@ -1,0 +1,173 @@
+// Day 1 - Start
+
+// Variables - holding the values
+// syntax
+var variableName = defaultValue;
+
+var age = 10;
+var user = 'Karthik';
+
+// Viewing the values present inside variable
+1. alert(age) => displays value in alert box
+2. console.log(age) => prints value to the console.
+
+var city;
+alert(city) => undefined 
+that means defaultValue is undefined
+
+// Creating a boolean(true/false)
+var isMale = true;
+
+function 
+	block of code
+	code reduction
+	re usability
+	
+// Creating a function - Approach 1
+// syntax
+function functionName(arguments) { 
+
+	// return result if needed
+}
+
+function welcome(){
+	console.log('Welcome to demo');
+}
+
+// executing function
+// syntax
+functionName(params);
+
+welcome();
+
+function add(x, y){
+	var z = x + y;
+	console.log(z);
+}
+
+add(10, 20) => prints 30
+
+// returning the value from function
+function add(x, y){
+	var z = x + y;
+	return z;
+}
+var sum = add(10,20)
+alert(sum) => displays 30 in alert box
+
+x and y are called arguments of the function
+10 and 20 are called params to the function
+
+Types
+	boolean
+	string
+	number
+	function
+	undefined
+	
+typeof(variableName or value) => returns type of value
+
+typeof(age) => number
+typeof(user) => string
+typeof(isMale) => boolean
+typeof(add) => function
+typeof(city) => undefined
+
+Ternary Operator
+// syntax
+var variableName = condition ? value1 : value2;
+
+if condition is true
+	variableName = value1;
+else 
+	variableName = value2;
+	
+var x = 5 > 10 ? 1 : 2;
+x will be 2
+
+var y = 100 > 5 ? 1 : 2;
+y will be 1
+
+// undefined handling
+var a,b,c;
+
+|| operator is used to handle undefined
+var d = a || 50;
+d will be 50 as a is undefined
+
+var e = a || b || c || 90;
+e will be 90
+
+c = 80
+e = a || b || c || 90;
+e will be 80
+
+function sub(x, y) {
+	console.log('x is ' + x);
+	console.log('y is ' + y);
+	return x - y;
+}
+
+Anything with undefined will be NaN(Not a Number)
+1 + undefined => NaN
+1 - undefined => NaN
+1 * undefined => NaN
+1 / undefined => NaN
+
+sub(10, 2) => 8
+sub(10) => NaN
+// if we are passing less params, it will undefined in arguments
+
+function sub(x, y) {
+	x = x || 0;
+	y = y || 0;
+	console.log('x is ' + x);
+	console.log('y is ' + y);
+	return x - y;
+}
+
+sub(10, 2, 1) => 8
+// additional params will be ignored so 
+	10 is copied to x
+	2 is copied to y
+	1 is ignored
+	
+// Comparison Operator
+== compares only value
+=== compares both value and type
+1 == 1 will print true
+1 == '1' will print true
+1 === '1' will print false
+1 === parseInt('1') will print true
+
+parseInt => helper function exists in browser
+	converts string to number
+	
+parseInt("100.9") => 100 => it is not trying for roundoff. It just removes the decimals.
+
+parseFloat => converts string to float
+parseFloat("100.9") => 100.9
+
+// self executing function => function which executes itself
+// syntax
+(function functionName() { })();
+
+(function welcome() {
+	console.log('Welcome to Demo');
+})();
+
+var result = (function mul(x, y) {
+	x = x || 1;
+	y = y || 1;
+	return x * y;
+})(10, 20);
+
+alert(result) => 200
+
+mul => VM369:1 Uncaught ReferenceError: mul is not defined at <anonymous>:1:1
+
+because the memory allocated with in the self executing function is cleared after execution
+
+// End - Day 1
+
+    

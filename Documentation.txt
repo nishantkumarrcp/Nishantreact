@@ -1,0 +1,6 @@
+Javascript - 5 to 7 sessions
+SPA Basics - 1
+React Basics - 5 to 7 sessions
+Node - 1
+React with Node - Project of 10 sessions
+Introduction to Redux
