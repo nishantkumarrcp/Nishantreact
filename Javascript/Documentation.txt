@@ -152,6 +152,7 @@ parseFloat("100.9") => 100.9
 // syntax
 (function functionName() { })();
 
+
 (function welcome() {
 	console.log('Welcome to Demo');
 })();
@@ -170,4 +171,191 @@ because the memory allocated with in the self executing function is cleared afte
 
 // End - Day 1
 
-    
+// Start - Day 2
+
+// Creating a function - Approach 2
+// syntax
+var functionName = function(arguments) { 
+	// return result if needed
+}
+
+var welcome = function(){
+	console.log('Welcome to demo');
+}
+
+// executing function
+// syntax
+functionName(params);
+
+welcome();
+
+var div = function(x, y){
+	var z = x / y;
+	console.log(z);
+	return z;
+}
+var result = div(10, 2);
+
+// Object - key value pair
+
+// syntax
+var variableName = {};
+
+// accessing the keys
+object.key
+object['key']
+
+var neha = {
+	name: 'Neha Singh',
+	age: 20,
+	city: 'Hyderabad'
+}
+
+console.log('Neha Singh with age 20 is from Hyderabad ');
+console.log( neha.name + ' with age '+ neha.age+ ' is from ' + neha.city);
+console.log( neha['name'] + ' with age '+ neha.age+ ' is from ' + neha['city']);
+
+// name, age, city are keys of object neha
+
+Object - key - string or number
+		      string - accessing using . or []
+			  number - accessing using []
+	   - value - string
+				number
+				boolean
+				
+// example for key of numbers			
+var test = { 
+			1: 'a', 
+			2: 'b'
+		}
+		
+test['1'] will return a
+test.2 throws exception as key with type number cant access using . operator
+
+// adding key value pair to object
+neha.college = "KVR";
+neha['native'] = 'India';
+
+if key exists, value of that key is updated.
+if key doesn't exist, key value pair is added.
+
+// special case/symbols
+key with string can have _ symbol
+var ramu = {
+	first_name: 'Ramu'
+}
+
+// deleting keys
+delete neha.college
+delete neha['native']
+
+// real use cases of object
+// 1. object as a parameter to function
+		Advantages:
+		1. order of params can be anything
+		2. pass only the required params
+
+function welcome(name, age, city){
+	console.log(name + ' with age '+ age + ' is from ' + city);
+}
+
+// handling undefined
+function welcome2(name, age, city){
+	name = name || '';
+	age = age || '';
+	city = city || '';
+	console.log(name + ' with age '+ age + ' is from ' + city);
+}
+// passing only city
+welcome2('', '', 'Delhi');
+
+we cant pass city directly/only, we must pass name and age
+
+// passing object as input
+function welcome3(inputObject){
+	console.log(inputObject.name + ' with age '+ inputObject.age + ' is from ' + inputObject.city);
+}
+
+welcome3({ name: 'deepak', age: 30, city: 'Visak'})
+welcome3({  age: 30, city: 'Visak', name: 'deepak'})
+welcome3({ city: 'Visak'});
+
+// handling undefined in object as an input parameter
+function welcome4(inputObject){
+	inputObject.name = inputObject.name || '';
+	inputObject.age = inputObject.age || '';
+	inputObject.city = inputObject.city || '';
+	console.log(inputObject.name + ' with age '+ inputObject.age + ' is from ' + inputObject.city);
+}
+
+// 2. default values
+function demo(input){
+	input = input || {};
+	input.name = input.name || 'Guest User';
+	console.log('Welcome to demo, ' + input.name);
+}
+
+// 3. organizing methods
+var calculator = {
+	add: function(x, y){
+		return x + y;
+	},
+	sub: function(x, y) {
+		return x - y;
+	}
+}
+
+calculator.add(1, 2) => 3
+calculator['sub'](1, 2) => -1
+
+calculator.mul = function(x, y) {
+	return x * y;
+}
+
+calculator['div'] = function(x, y) {
+	return x / y;
+}
+
+calculator.mul(10, 20) => 200
+
+// sample
+var React = {
+	createButton: function() {}
+	createTextBox: function() {}
+}
+
+// value can be object also(nested object)
+neha.address = {
+	line1: '1/2/3',
+	line2: 'Kukatpally'
+}
+
+to print kukatpally
+neha.address.line2
+neha.address['line2']
+neha['address']['line2']
+neha['address'].line2
+
+NIT.Framework.buttons.createRoundButton({text:'Login'})
+NIT.Framework.buttons.createLargeButton({text:'Login'})
+
+// decoding above syntax
+var NIT = {
+	Framework: {
+		buttons: {
+			createRoundButton: function(input){
+				console.log(input.text);
+			},
+			createLargeButton: function(input){
+				console.log(input.text);
+			}
+		}
+	}
+}
+
+// Day 2 - End
+
+// Return object 
+	NIT.Framework.Students.Get({ fn: '', ln: ''}).getFullName()
+// Returning control
