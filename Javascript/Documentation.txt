@@ -64,6 +64,7 @@ Types
 	number
 	function
 	undefined
+	object
 	
 typeof(variableName or value) => returns type of value
 
@@ -356,6 +357,178 @@ var NIT = {
 
 // Day 2 - End
 
-// Return object 
-	NIT.Framework.Students.Get({ fn: '', ln: ''}).getFullName()
-// Returning control
+// Day 3 - Start
+
+// function returning object
+
+  function createPerson(fn, ln, age, city) {
+	return {
+		name: fn + ' ' + ln,
+		age: age,
+		city: city
+	}
+  }
+
+  var hari = createPerson('Hari', 'Krishna', 20, 'Hyd');
+  
+console.log(NIT.Admin.GetAccount('Keerthi')['FullName'].FirstName);
+
+notes:
+1. () indicates function
+2. . or [] indicates object
+
+
+// decoding
+
+var NIT = {
+	Admin: {
+		GetAccount: function(name) {
+			return {
+				FullName: {
+					FirstName: ''
+				}
+			}
+		}
+	}
+}
+
+// return is not only used for returning the result, we can also use for stopping the execution and returns to called function
+function process(isTerminate){
+	console.log('Started');
+	if(isTerminate) {
+		console.log('Terminate');
+		return;
+	}
+	
+	console.log('End');
+}
+ 
+Arrays => Collection
+		it is an object having numeric keys and starts with 0 key and increments by 1 
+
+// array of numbers
+var numbers = [1, 2, 3, 4, 5];
+here index starts with 0 and increments by 1
+
+// accessing items
+
+numbers[0] => 1
+numbers[1] => 2
+numbers[2] => 3
+numbers[3] => 4
+numbers[4] => 5
+numbers[5] => undefined
+
+// array of strings
+var students = ['Kathik', 'Preethi', 'Venkat', 'Neha', 'Rakesh']
+
+// adding item to array => push => added item at the end of array
+students.push('Deepak')
+
+// removing item from array => pop => removes last item from array
+students.pop()
+
+// Iterating arrays
+// Approach - 1 - For
+for(var index = 0; index < students.length; index ++){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 2 - For In - Iterating using index
+for( var index in students){
+	console.log(index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 3 - For Of - Iterating using Item
+for( var student of students){
+	console.log(student);
+}
+
+// array of objects
+var persons = [ 
+	{ name: 'Karthik', age: 20, city: 'Hyderabad' }, 
+	{ name: 'Keerthi', age: 25, city: 'Bangalore' }, 
+	{ name: 'Pranesh', age: 30, city: 'Bangalore' },
+	{ name: 'Venu', age: 35, city: 'Delhi' }
+]
+
+for( var person of persons){
+	console.log( person.name + ' with ' + person.age + ' is from ' + person.city );
+}
+
+// print persons where age is greater than 25
+for( var person of persons){
+	if(person.age > 25) {
+		console.log( person.name + ' with ' + person.age + ' is from ' + person.city );
+	}
+}
+
+// print persons where age is greater than 25 or city is Bangalore
+for( var person of persons){
+	if(person.age > 25 || person.city == 'Bangalore') {
+		console.log( person.name + ' with ' + person.age + ' is from ' + person.city );
+	}
+}
+
+// print persons where age is greater than 25 and city is Bangalore
+for( var person of persons){
+	if(person.age > 25 && person.city == 'Bangalore') {
+		console.log( person.name + ' with ' + person.age + ' is from ' + person.city );
+	}
+}
+
+// array of different types
+
+var items = [ 100, 'Krishna', true, undefined, { line1: '1/2/3', line2: 'Ameerpet'}, function(x, y) { return x + y; } ]
+
+// printing Ameerpet
+items[4].line2
+
+// executing function
+items[5](100, 20) => 120
+
+
+NIT.Calculator['Add'](10, 20)
+
+var NIT = {
+	Calculator: {
+		Add: function(x, y) { }
+	}
+}
+
+// Convertions
+// object to string => JSON.stringify => usually we send data in string format to backend
+
+// string to object => JSON.parse => backend returns in string format, to decode values we need to convert to object
+
+var person = {
+	name: "Venu", 
+	age: 35, 
+	city: "Delhi"
+}
+
+var str = JSON.stringify(person)
+
+var person_Object = JSON.parse(str);
+
+var JSON = {
+	stringify: function(value) {},
+	parse: function(value) {}
+}
+
+
+// End - Day 3
+
+
+
+
+
+
+
+
+
+
