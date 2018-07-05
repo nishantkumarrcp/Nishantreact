@@ -523,8 +523,209 @@ var JSON = {
 
 // End - Day 3
 
+// Start - Day 4
+
+Naming Convention for Variables =>
+Camel Case => 
+	first letter will be in lower case, for every word joining higher case letter is used
+	var helloWorld, scientificCalculator 
+	creating variables/functions
+Variable Case => 
+    first letter will be in upper case, for every word joining higher case letter is used
+	Student, Person
+	creating class
+Higher Case =>
+	all letters will be in higher case
+	STATES, COUNTRIES 
+	creating constants or static data
+LOWER Case =>
+	all letters will be in lower case
+	creating variables
+	student, person
+
+var neha = {
+	name: 'Neha Singh',
+	age: 30,
+	city: 'Hyderabad'
+}
+
+var prakash = {
+	name: 'Prakash Singh',
+	age: 30,
+	city: 'Hyderabad'
+}
+
+// Object Oriented Concepts
+	Class
+	Object
+	Inheritance
+	Constructor
+	Data Hiding or Access Specifiers
+	
+Advantages
+	Data redundancy can be removed 
+	
+Class - Structure
+Object/Instance - Real Values of class
+Constructor - passing default values while creating object
+
+// Creating a class - Approach 1
+// Syntax - simple
+var className = function() {
+	return {
+		
+	}
+}
+
+// Syntax - complete
+var className = function(constructor args) {
+	// private function/variables
+	return {
+		// public attributes/variables
+		// public methods
+	}
+}
+
+// Syntax for creating object
+var object = new className();
+
+var Student = function(){
+	return {
+		
+	}
+}
+
+// simple class
+function Student() {
+	return {
+	}
+}
+
+// simple class having 3 attributes/variables
+function Student2() {
+	return {
+		name: '',
+		age: 0,
+		city: ''
+	}
+}
+
+var neha = new Student2();
+var prakash = new Student2();
+
+// class with constructor
+function Student3(username, userage, usercity) {
+	return {
+		name: username,
+		age: userage,
+		city: usercity
+	}
+}
+var neha = new Student3('Neha Singh', 30, 'Hyderabad');
+var prakash = new Student3('Prakash Singh', 30, 'Hyderabad');
+
+// class with constructor where object is passed as input
+function Student4(input) {
+	return {
+		name: input.username,
+		age: input.userage,
+		city: input.usercity
+	}
+}
+var neha = new Student4( { username: 'Neha Singh', userage: 30, usercity: 'Hyderabad' });
+var prakash = new Student4({ username: 'Prakash Singh', userage: 30, usercity: 'Hyderabad'});
+
+var test = new Student4( { username: 'Test' });
+
+// class with constructor and handling undefined
+function Student5(input) {
+	input = input || {};
+	input.username = input.username || 'Guest User';
+	input.userage = input.userage || '';
+	input.usercity = input.usercity || '';
+	
+	return {
+		name: input.username,
+		age: input.userage,
+		city: input.usercity
+	}
+}
+
+var guest = new Student5();
+
+Access Specifiers => private, public, global method/variable
+
+var Person = function(firstName, lastName){
+	return {
+		getFullName: function() {
+			return firstName + ' ' + lastName;
+		}
+	}
+}
+		
+Project
+variables, attributes, fields, properties are same
+function, method, api are same
+	
+// Calculator
+var Calculator = function(){
+	var secret = '123456';
+	var printScreen = function(value){
+		console.log('Result is ' + value);
+	}
+	return {
+		version: 1.0,
+		add: function(x, y) {
+			var z = x + y;
+			printScreen(z);
+			return z;
+		},
+		sub: function(x, y) {
+			var z = x + y;
+			printScreen(z);
+			return z;
+		},
+		printSecret: function(){
+			console.log(secret.replace(1234, 'xxxx'));
+		}
+	}
+}
 
 
+var calc1 = new Calculator();
+
+var Person = function(){
+	return {
+		welcome: function(){
+			console.log('Welcome to Demo');
+		}
+	}
+}
+var p1 = new Person();
+var p2 = new Person();
+var p3 = new Person();
+
+p1.welcome() => Welcome to Demo
+p2.welcome() => Welcome to Demo
+p3.welcome() => Welcome to Demo
+
+// we can override any variable/function of object. it will not affect other instances
+p2.welcome = function() {
+	console.log('Welcome to Overided Demo');
+}
+
+p1.welcome() => Welcome to Demo
+p2.welcome() => Welcome to Overided Demo
+p3.welcome() => Welcome to Demo
+
+School Management
+	Person - CRUD - Create Retrieve Update Delete
+	Teacher - CRUD
+	Class - CRUD
+	Marks - CRUD
+	Subjects - CRUD
+	
+	Login - login, logout
 
 
 
