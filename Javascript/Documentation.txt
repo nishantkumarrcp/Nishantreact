@@ -580,9 +580,9 @@ var className = function() {
 // Syntax - complete
 var className = function(constructor args) {
 	// private function/variables
+	// global function/variables (missing the var keyword and no need of instance to access these attributes)
 	return {
-		// public attributes/variables
-		// public methods
+		// public function/variables
 	}
 }
 
@@ -726,10 +726,208 @@ School Management
 	Subjects - CRUD
 	
 	Login - login, logout
+	
+-- Day 4 - End
+
+-- Day 5 - Start
+
+var Page = function() {
+	return {
+		header: ' logo , username ',
+		footer: ' copyright info'
+	}
+}
+
+var teacher = new Page();
+var student = new Page();
+var marks = new Page();
+var class = new Page();
+
+var login = new Page();
+login.header = null;
+// injecting the attribute
+login.centerPanel = ' Enter username and password';
+// delete the attribute
+delete login.footer;
+
+// this keyword refers to context or scope
+// with in the object, this keyword refers to object
+var prakash = {
+	fname: 'Prakash',
+	lName: 'Kumar',
+	getName: function(){
+    	return prakash.fname + ' ' + prakash.lName;
+	}
+}
+
+// using 
+var prakash = {
+	fname: 'Prakash',
+	lName: 'Kumar',
+	getName: function(){
+    	return this.fname + ' ' + this.lName;
+	}
+}
+
+// Variables which we have created with in the function cant be accesible outside the function
+
+function test() {
+	var xyz = 100;
+}
+
+function test2() {
+	console.log(xyz);
+}
+
+test() => xyz is created
+
+test2() => throws exception that xyz is not defined
+
+// global variable => having no var keyword at the time of creating a variable. These variables can be accessible(add, update) anywhere 
+
+function test() {
+	var xyz = 100;
+	abc = 30;
+}
+function test2() {
+	console.log(abc);
+}
 
 
+var Calculator = function(){
+	// private field
+	var secret = '123456';
+	
+	// private function
+	var printScreen = function(value){
+		console.log('Result is ' + value);
+	}
+	
+	// global field
+	pi = 3.14;
+	
+	// global function
+	getProjectVersion = function(){
+		return "1.0";
+	}
+	return {
+		// public field
+		version: 1.0,
+		// public function
+		add: function(x, y) {
+			var z = x + y;
+			printScreen(z);
+			return z;
+		},
+		sub: function(x, y) {
+			var z = x + y;
+			printScreen(z);
+			return z;
+		},
+		printSecret: function(){
+			console.log(secret.replace(1234, 'xxxx'));
+		}
+	}
+}
 
+// Creating class - Approach 2
+// syntax
+var className = function(constructor args) {
+	// private function/variables
+	// global function/variables (missing the var keyword and no need of instance to access these attributes)
+	
+	// public function/variables
+	this.
+}
 
+function Student5(input) {
+	input = input || {};
+	input.username = input.username || 'Guest User';
+	input.userage = input.userage || '';
+	input.usercity = input.usercity || '';
+	
+	this.name = input.username;
+	this.age = input.userage;
+	this.city = input.usercity;
+}
 
+var neha = new Student5( { username: 'Neha Singh', userage: 30, usercity: 'Hyderabad' });
+var prakash = new Student5({ username: 'Prakash Singh', userage: 30, usercity: 'Hyderabad'});
+
+var Calculator = function(){
+	// private field
+	var secret = '123456';
+	
+	// private function
+	var printScreen = function(value){
+		console.log('Result is ' + value);
+	}
+	
+	// global field
+	pi = 3.14;
+	
+	// global function
+	getProjectVersion = function(){
+		return "1.0";
+	}
+	
+	// public field
+	this.version = 1.0;
+	
+	// public function
+	this.add = function(x, y) {
+		var z = x + y;
+		printScreen(z);
+		return z;
+	}
+	
+	this.sub = function(x, y) {
+		var z = x + y;
+		printScreen(z);
+		return z;
+	}
+	
+	this.printSecret = function(){
+		console.log(secret.replace(1234, 'xxxx'));
+	}
+}
+
+var SimpleCalc = function(){
+	this.add = function(x, y){
+		return x + y;
+	}
+	this.sub = function(x, y){
+		return x - y;
+	}
+}
+var s1 = new SimpleCalc();
+s1.add(10, 20) => 30
+s1.sub(10, 20) => - 10
+
+// prototype is useful for injecting methods for existing classes
+SimpleCalc.prototype.mul = function(x, y) {
+	return x * y;
+}
+var s2 = new SimpleCalc();
+s2.mul(10, 2) => 20
+
+s1.mul(10, 20) => 200 .. here mul is accessible to s1 also. so methods are available for older instances ie instance created before injecting the method.
+
+function sum( a, b) {
+	return a + b;
+}
+sum(10, 20)	=> 30
+
+var sum2 = function(a){
+	return function(b){
+    	console.log(a);
+		console.log(b);
+		return a + b;
+	}
+}
+sum2(10)(20) => 30
+
+sum(10)['a'] => sum is returning an object that has key 'a'
+sum(10)('a') => sum is returning function that takes 'a' as input
 
 
