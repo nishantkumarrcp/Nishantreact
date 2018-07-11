@@ -1,0 +1,235 @@
+ES6
+	reduces number of lines
+	simplified code
+	Browser cant understand ES. so we need to use babel plugin to convert into older standards
+	
+Babel is a plugin to covert latest standards into es5/old standard.
+
+https://babeljs.io/
+
+Code Testing Purpose
+https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYGwhgzhAEAKCmAnCB7AdtA3gKAL5A&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=
+
+// simple class
+Javascript
+function Person(){
+	return {}
+}
+
+ES6
+class Person {
+
+}
+
+// class having 2 methods
+Javascript
+var Calculator = function(){
+	this.add = function(x, y) {
+		return x + y;
+	}
+	this.sub = function(x, y) {
+		return x - y;
+	}
+}
+ES6
+class Calculator2 {
+	add(x, y) {
+    	return x + y;
+	}
+	sub(x, y) {
+    	return x - y;
+	}
+}
+
+// constructor pattern
+var Student2 = function(name, age){
+	return {
+		getName: function(){
+			return name;
+		},
+		age: age
+	}
+}
+
+// ES6
+class Student3 {
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	
+	getName(){
+		return this.name;
+	}
+	
+}
+var rakesh = new Student3('Rakesh Kumar', 20);
+rakesh.getName() => Rakesh Kumar
+
+class Teacher {
+	getName() {
+    	return this.name;
+	}
+	setName(value){
+    	this.name = value;
+	}
+}
+var x = new Teacher();
+x.getName() => undefined
+
+var seeta = new Teacher()
+seeta.setName('Seetha Kumari')
+seeta.getName() => "Seetha Kumari"
+
+
+// props as a object input to constructor
+function Teacher2(props){
+	return {
+		getFullName: function(){
+			return props.firstName + ' ' + props.lastName;
+		}
+	}
+}
+class Teacher2 {
+	constructor(props){
+		this.props = props;
+	}
+	getFullName (){
+		return this.props.firstName + ' ' + this.props.lastName;
+	}
+}
+var neha = new Teacher2({firstName: 'Neha', lastName: 'Singh'})
+
+
+// Constants => cant be updated
+const pi = 3.14
+
+// update value
+pi = 4
+VM194:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:4
+	
+	
+class HDFCBank {
+	getBankName(){
+		return "HDFC";
+	}
+}
+
+var u1 = new HDFCBank();
+var u2 = new HDFCBank();
+
+// static keyword to make function static, which is accesible directly from class
+// usually static is used for common feature of all objects
+
+class HDFCBank2 {
+	static getBankName(){
+		return "HDFC";
+	}
+}
+HDFCBank2.getBankName()
+
+
+Class Person
+Field age
+instance/object p1 = new Person();
+
+if age is public => p1.age
+if age is private => p1.age returns undefined
+if age is global => age 
+if age is static => Person.age
+if age is const => const age = 100; age = 20 throws exception that it cant be updated
+
+
+class CurrentAccount{
+	getAccountDetails(){
+	}
+	
+	getCurrentAmount(){
+	}
+}
+
+class SavingsAccount{
+	getAccountDetails(){
+	}
+	
+	getSavingsAmount(){
+	}
+}
+
+// use inheritance concept to have parent-child relationship
+class Account {
+	getAccountDetails(){
+	}
+}
+
+class CurrentAccount extends Account {
+	getCurrentAmount(){
+	}
+}
+
+class SavingsAccount extends Account {
+	getSavingsAmount(){
+	}
+}
+
+
+class Father {
+	getName(){
+		return "Lakshman";
+	}
+	getGender(){
+		return "Male";
+	}
+}
+
+class Son extends Father{
+	getName(){
+		return "Venkat";
+	}
+	getCity(){
+		return "Hyderabad";
+	}
+}
+
+var s = new Son();
+
+// new method in Son
+s.getCity() => "Hyderabad"
+
+// overiding parent method
+s.getName() => "Venkat"
+
+// accesing parent method
+s.getGender() => "Male"
+
+// Arrow functions
+
+var add = function (x, y){
+	return x+ y;
+}
+
+var add = (x, y) => {
+	return x + y;
+}
+
+var add = (x, y) => x + y
+var sub = (x, y) => x - y
+
+// very important thing in react
+function Teacher2(props){
+	return {
+		getFullName: function(){
+			return props.firstName + ' ' + props.lastName;
+		}
+	}
+}
+class Teacher2 {
+	constructor(props){
+		this.props = props;
+	}
+	getFullName (){
+		return this.props.firstName + ' ' + this.props.lastName;
+	}
+}
+
