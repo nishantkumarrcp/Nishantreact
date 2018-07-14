@@ -1,0 +1,47 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Student extends React.Component {
+			render(){
+				return <div>
+					<h1>{this.props.title}</h1>
+					<table>
+						<thead>
+							<td>Name</td>
+							<td>Age</td>
+							<td>City</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td> Jhansi </td>
+								<td> 20 </td>
+								<td> Hyderbad </td>
+							</tr>
+							<tr>
+								<td> Omesh </td>
+								<td> 30 </td>
+								<td> Vizag</td>
+							</tr>
+							<tr>
+								<td> Preethi </td>
+								<td> 25 </td>
+								<td> Delhi </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<Student title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

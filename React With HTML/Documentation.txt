@@ -129,3 +129,70 @@ TestComponent({ title: 'Welcome to React Demo'})
 
 Important Points
 	Use curly braces for variables with in jsx elements.
+
+class Person {
+	constructor(props){
+		this.props = props;
+	}
+	getName(){
+		return this.props.name;
+	}
+}
+
+var kavya = new Person({ name: 'Kavya'});
+kavya.getName() => Kavya
+
+class Student {
+	constructor(props){
+		this.props = props;
+	}
+	getAge(){
+		return this.props.age;
+	}
+}
+var prakash = new Student({age: 20})
+prakash.getAge() => 20
+
+
+class Human {
+	constructor(props){
+		this.props = props;
+	}
+}
+class Person2 extends Human{
+	getName(){
+		return this.props.name;
+	}
+}
+class Student2 extends Human{
+	getAge(){
+		return this.props.age;
+	}
+}
+
+
+Creating Es6 React Class =>
+	Create a class which extends React.Component and implement the render method.
+	view code is added inside render method
+	Internally it has some mechanism to read output of render method and generate ui elements
+
+Variables
+Block Level => var name; 
+Public variable => this.name;
+Props => this.props.name => props means the attributes that the component receives
+							not editable
+Constants => const name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+demo 8 => ES6 version of demo 7
+demo 9 => printing array of courses
+demo 10 => printing array of courses from block level variable
+demo 11 => printing array of Students
+demo 11 => printing array of Students from block level variable

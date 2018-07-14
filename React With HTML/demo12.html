@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Student extends React.Component {
+			render(){
+				var students = [
+					{ name: 'Jhansi', age: 20, city: 'Hyderbad'},
+					{ name: 'Omesh', age: 30, city: 'Vizag'},
+					{ name: 'Preethi', age: 25, city: 'Delhi'},
+					{ name: 'Lakshman', city: 'Delhi'}
+				];
+				
+				var rows = [];
+				for(var student of students){
+					rows.push(<tr>
+								<td> {student.name} </td>
+								<td> {student.age} </td>
+								<td> {student.city} </td>
+							</tr>);
+				}
+				
+				return <div>
+					<h1>{this.props.title}</h1>
+					<table>
+						<thead>
+							<td>Name</td>
+							<td>Age</td>
+							<td>City</td>
+						</thead>
+						<tbody>
+							{rows}
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<Student title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

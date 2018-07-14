@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Course extends React.Component {
+			render(){
+				return <div>
+					<h1>{this.props.title}</h1>
+					<ul>
+						<li>React</li>
+						<li>React Native</li>
+						<li>Express</li>
+						<li>Node</li>
+						<li>Jquery</li>
+					</ul>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<Course title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
