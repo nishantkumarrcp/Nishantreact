@@ -183,6 +183,75 @@ Props => this.props.name => props means the attributes that the component receiv
 							not editable
 Constants => const name;
 
+// State level variables
+Variables if updated, screen updates automatically
+
+this.state = {
+	a: 1,
+	b: 2,
+	c: 3,
+	d: 4,
+	e: 5
+}
+
+// updating state => we need to use helper method setState
+c to 30 e to 50
+this.setState({ c: 30, e: 50})
+here c and e values are changed, screen refreshes automatically
+
+c to 3, e to 5 (no change in values)
+this.setState({ c: 3, e: 5 })
+here c and e values are not changed, screen will not refresh
+
+this.state = {
+	res: ['R1', 'R2', 'R3']
+}
+
+this.setState({ res: ['R1', 'R2', 'R3', 'R4'] })
+
+// Considering public and state variables
+if there is a screen update when the value is changed in variable, then place it inside state.
+
+Variables
+Block Level => var name; 
+Public variable => this.name;
+Props => this.props.name => props means the attributes that the component receives
+							not editable
+State => this.state.name
+Constants => const name;
+
+// assume there are 0 restaurants, when i click on button i need to get 3 restaurants.
+
+// Initializing restaurants
+constructor(props){
+	super(props);
+	this.state = {
+		restaurants: []
+	}
+}
+
+onRefreshButtonClick (){
+	this.setState({ restaurants: [ 'R1', 'R2', 'R3'] })
+}
+
+super(props) => to trigger base class(React.Component) constructor in order to create props
+
+inside the method, scope is null by default. we need to .bind(this) in order to pass the scope
+
+constructor => default values
+setState => updating the state
+.bind => passing the scope to function or accessing the scope with in the function
+
+// Applying Styles
+// Inline styles
+style = {{ color: 'red', border: '1px solid'}}
+
+HTML style => color, border, background-image, background-color
+JSX style  => color, border, backgroundImage, backgroundColor
+
+// using class attribute
+no difference between JSX and HTML 
+
 
 
 

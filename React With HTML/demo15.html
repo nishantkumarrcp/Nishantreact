@@ -1,0 +1,72 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+	.container {
+		background-color: gray;
+		width: 600;
+		height: 600px;
+	}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Student extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					students: [],
+					backgroundColor: 'yellow'
+				}
+			}
+			onRefresh(){
+				this.setState({ students: [
+					{ name: 'Jhansi', age: 20, city: 'Hyderbad'},
+					{ name: 'Omesh', age: 30, city: 'Vizag'},
+					{ name: 'Preethi', age: 25, city: 'Delhi'},
+					{ name: 'Lakshman', city: 'Delhi'}
+				]
+				})
+			}
+			changeColor(){
+				this.setState({ backgroundColor: 'green'});
+			}
+			render(){
+				var students = this.state.students;
+				var rows = [];
+				for(var student of students){
+					rows.push(<tr>
+								<td> {student.name} </td>
+								<td> {student.age} </td>
+								<td> {student.city} </td>
+							</tr>);
+				}
+				
+				return <div class='container'>
+					<h1>{this.props.title}</h1>
+					<input type='button' value='Refresh' onClick={
+					this.onRefresh.bind(this)}/>
+					<input type='button' value='Change Table Color' onClick={this.changeColor.bind(this)} />
+					<table style={{ backgroundColor: this.state.backgroundColor }}>
+						<thead>
+							<td>Name</td>
+							<td>Age</td>
+							<td>City</td>
+						</thead>
+						<tbody>
+							{rows}
+						</tbody>
+					</table>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<Student title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
