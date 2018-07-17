@@ -5,3 +5,7 @@ demo 11 => printing array of Students
 demo 11 => printing array of Students from block level variabledemo 12 => printing array of Students from block level variable
 demo 13 => refresh button for demo 10
 demo 14 => refresh button for demo 12
+demo 15 => applying inline styles and css class
+demo 16 => Implementing search box
+demo 17 => creating react component from login.html
+demo 18 => Applying Filters ie filter states by selected country

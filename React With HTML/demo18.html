@@ -1,0 +1,117 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		const COUNTRIES = [
+			{ value: '0', display: 'Select Country'},
+			{ value: '1', display: 'India'},
+			{ value: '2', display: 'Pakistan'},
+			{ value: '3', display: 'America'},
+			{ value: '4', display: 'England'}
+		];
+		const STATES = [
+			{ value: '1', display: 'Telangana', countryId: '1'},
+			{ value: '2', display: 'Andhrapradesh', countryId: '1'},
+			{ value: '3', display: 'Newyork', countryId: '3'},
+			{ value: '4', display: 'Washington', countryId: '3'},
+			{ value: '5', display: 'Delhi', countryId: '1'}
+		];
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					countries: COUNTRIES,
+					states: STATES,
+					statesClone: STATES
+				}
+			}
+			onCountryChange(event){
+				var selectedCountry = event.target.value;
+				var filteredStates = [];
+				for(var state of this.state.states){
+					if(state.countryId == selectedCountry){
+						filteredStates.push(state);
+					}
+				}
+				this.setState({ statesClone: filteredStates });
+			}
+			render(){
+				var countryOptions = [];
+				var stateOptions = [];
+				
+				for(var country of this.state.countries){
+					countryOptions.push(<option value={country.value}>{country.display}</option>);
+				}
+				
+				for(var state of this.state.statesClone){
+					stateOptions.push(<option value={state.value}>{state.display}</option>);
+				}
+			
+				return <div>
+					<h3>Using CSS to style an HTML Form</h3>
+					<div>
+					  <form action="">
+						<label>First Name</label>
+						<input type="text" id="fname" name="firstname" placeholder="Your name.." />
+
+						<label>Last Name</label>
+						<input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+
+						<label>Country</label>
+						<select id="country" name="country" onChange={this.onCountryChange.bind(this)}>
+						  {countryOptions}
+						</select>
+						<label>State</label>
+						<select id="country" name="country">
+						  <option value="0">Select State</option>
+						  {stateOptions}
+						</select>
+						<input type="submit" value="Submit" />
+					  </form>
+					</div>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<TestComponent title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

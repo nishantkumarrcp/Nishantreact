@@ -1,0 +1,56 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		const COURSES =  [ 'React', 'React Native', 'Express', 'Node'];
+		
+		class Course extends React.Component {
+			constructor(props){
+				super(props);
+				
+				this.state = {
+					courses: COURSES,
+					coursesClone: COURSES
+				}
+			}
+			
+			onSearchBoxChange(event){
+				var value = event.target.value;
+				console.log(value);
+				var filteredItems = [];
+				for(var course of this.state.courses){
+					if(course.toLowerCase().indexOf(value.toLowerCase()) >= 0){
+						filteredItems.push(course);
+					}
+				}
+				this.setState({ coursesClone: filteredItems });
+			}
+			
+			render(){
+				var courses = this.state.coursesClone;
+				
+				var liElements = [];
+				for(var course of courses){
+					liElements.push(<li>{course}</li>);
+				}
+				
+				return <div>
+					<h1>{this.props.title}</h1>
+					<input type='text' placeholder='Search' onChange={this.onSearchBoxChange.bind(this)} />
+					<ul>
+						{liElements}
+					</ul>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<Course title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
