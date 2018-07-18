@@ -1,0 +1,152 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.error {
+	color: red
+}
+.warning {
+	color: blue
+}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					errorUserName: '',
+					errorPassword: '',
+					errorConfirmPassword: '',
+					errorMessages: []
+				}
+			}
+			onUserNameChange(event){
+				this.username = event.target.value;
+			}
+			onPasswordChange(event){
+				this.password = event.target.value;
+			}
+			onConfirmPasswordChange(event){
+				this.confirmPassword = event.target.value;
+			}
+			onRegister(){
+				//debugger;
+				var isValid = true;
+				var errorUserName = '';
+				var errorPassword = '';
+				var errorConfirmPassword = '';
+				var errorMessages = [];
+				
+				if(typeof(this.username) == 'undefined' || this.username == ''){
+					errorUserName = 'Please enter UserName';
+					isValid = false;
+					errorMessages.push(errorUserName);
+				}
+				if(typeof(this.password) == 'undefined' || this.password == ''){
+					errorPassword = 'Please enter Password';
+					isValid = false;
+					errorMessages.push(errorPassword);
+				} else {
+					if(this.password != this.confirmPassword){
+						errorConfirmPassword = 'Password Mismatch';
+						isValid = false;
+						errorMessages.push(errorConfirmPassword);
+					}
+				}
+				if(typeof(this.confirmPassword) == 'undefined' || this.confirmPassword == ''){
+					errorConfirmPassword = 'Please enter Confirm Password';
+					isValid = false;
+					errorMessages.push(errorConfirmPassword);
+				} 
+				
+				this.setState({
+					errorUserName: errorUserName,
+					errorPassword: errorPassword,
+					errorConfirmPassword: errorConfirmPassword,
+					errorMessages: errorMessages
+				});
+				
+				if(isValid){
+					// 
+					alert('Registration Success');
+				}
+				
+				/*this.setState({
+					errorUserName: 'Please enter UserName',
+					errorPassword: 'Please enter Password',
+					errorConfirmPassword: 'Password Mismatch'
+				});*/
+			}
+			render(){
+			
+				var errorElements = [];
+				for(var errorMessage of this.state.errorMessages){
+					errorElements.push(<li>{errorMessage}</li>);
+				}
+				return <div>
+					<h3>Using CSS to style an HTML Form</h3>
+					<div>
+					  <label>UserName</label>
+						<input type="text" id="username" name="username" placeholder="Your name.." onChange={this.onUserNameChange.bind(this)}/>
+						<span class="error">{this.state.errorUserName} </span>
+						<br/>
+						<label>Password</label>
+						<input type="text" id="password" name="password" placeholder="Your password.."  onChange={this.onPasswordChange.bind(this)}/>
+						<span class="error">{this.state.errorPassword}</span>
+						<br/>
+						<label>Confirm Password</label>
+						<input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm password.."  onChange={this.onConfirmPasswordChange.bind(this)}/>
+						<span class="error">{this.state.errorConfirmPassword} </span>
+						<br/>
+						<br/>
+						
+						<input type="submit" value="Register" onClick={this.onRegister.bind(this)} />
+						<ul class='warning'>
+							{errorElements}
+						</ul>
+					</div>
+				</div>
+			}
+		}
+		
+		ReactDOM.render(<TestComponent title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

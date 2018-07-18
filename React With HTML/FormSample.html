@@ -1,0 +1,20 @@
+
+<script>
+	function onValidate(){
+		var username = document.getElementById('name').value;
+		var password = document.getElementById('password').value;
+		if(username == '' || password == ''){
+			return false;
+		}
+		if(username == ''){
+			document.getElementById('errorUserName').innerText = 'Please enter UserName';
+		}
+		
+	}
+</script>
+
+<form action="/registerUser">
+	UserName: <input type ='text' id='name' name='username' /><span id='errorUserName'></span>
+	UserName: <input type ='text'  id='password' name='password' />
+	<input type="submit" value='Register' onClientClick='javascript:onValidate()'/>
+</form>
