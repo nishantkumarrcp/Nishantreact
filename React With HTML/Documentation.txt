@@ -272,6 +272,27 @@ event.preventDefault() => it stops triggering method for multiple times
 "hello".startWith('h') => true
 "hello".startWith('o') => false
 
+<Table class="demo" />
+
+Table => React Component
+class => attribute => this.props.class
+
+<Table class="demo" >
+	<thead></thead>
+</Table>
+
+<thead></thead> => inner node or childs or inner html => this.props.children
+
+Master Page => its a template. Its like a common layout for all pages.
+
+defaultProps => default attributes/properties of the component
+syntax => ClassName.defaultProps = {}
+Student.defaultProps = {
+	user: 'Guest',
+	age: 0,
+	city: 'Virtual Machine'
+}
+
 
 
 

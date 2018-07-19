@@ -1,0 +1,59 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Header extends React.Component {
+			render(){
+				return <div>{this.props.title} Header</div>;
+			}
+		}
+		
+		class Header2 extends React.Component {
+			render(){
+				return <div>This is Header2</div>;
+			}
+		}
+		
+		class Footer extends React.Component{
+			render(){
+				return <div>@Copyright 106 Footer</div>;
+			}
+		}
+		
+		class MasterPage extends React.Component {
+			render(){
+				return <div>
+					<Header title={this.props.title}/>
+					<Header2 />
+					{this.props.children}
+					<Footer />
+				</div>
+			}
+		}
+		class ContactUs extends React.Component {
+			render(){
+				return <MasterPage title={this.props.title}>
+							<h1>ContactUs Panel</h1>
+						</MasterPage>
+			}
+		}
+		
+		class AboutUs extends React.Component {
+			render(){
+				return <MasterPage title={this.props.title}>
+						<h1>AboutUs Panel</h1>
+					</MasterPage>
+			}
+		}
+		
+		ReactDOM.render(<AboutUs title="Welcome to Demo"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

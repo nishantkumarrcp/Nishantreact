@@ -2,10 +2,14 @@ demo 8 => ES6 version of demo 7
 demo 9 => printing array of courses
 demo 10 => printing array of courses from block level variable
 demo 11 => printing array of Students
-demo 11 => printing array of Students from block level variabledemo 12 => printing array of Students from block level variable
 demo 13 => refresh button for demo 10
 demo 14 => refresh button for demo 12
 demo 15 => applying inline styles and css class
 demo 16 => Implementing search box
 demo 17 => creating react component from login.html
-demo 18 => Applying Filters ie filter states by selected country
+demo 18 => Applying Filters ie filter states by selected countrydemo 19 => Applying Search and Reset Buttons for demo 16
+demo 20 => Applying Search and Reset Buttons for demo 14
+demo 21 => Registration Page
+demo 22 => Creating reusable components
+demo 23 => Master Page using this.props.children
+demo 24 => defaultProps for the class.
