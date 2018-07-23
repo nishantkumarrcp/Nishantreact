@@ -1,0 +1,47 @@
+Node
+	Server Side JS Framework
+	Collection of Modules and connected in tree format
+	We can add/update/delete modules indedependly
+	
+Node + Webpack/HTTP => webpage
+Node + Express => Backend APIS
+
+Node can run in Windows, Linux and Mac
+
+Main advantage is it can server millions of requests in fraction of seconds
+
+Node + React => deploy, bundle
+
+bundle => completely compressed
+		copy required functions only
+		Cache support
+		generates 3 files at the end
+			HTML - html.123456
+			Css - css.123456
+			JS - css.123456
+			
+https://nodejs.org/en/
+
+npm => node package manager
+
+
+Creating a project
+	create a folder manually
+	npm init
+	create a file and write code
+	create server.js
+	
+Running a project
+	node filename.js 
+	ex: node server.js
+	
+Node => JS Framework
+	object
+	function
+	ES5 class
+	ES6 class
+	
+https://www.tutorialspoint.com/expressjs
+	
+	
+

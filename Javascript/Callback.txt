@@ -1,0 +1,146 @@
+CallBack
+	CallBacks are the functions that are passed as an input parameter which will be executed with in the called function.
+	It can accept values and return values
+
+Advantages => reduces code
+			  ability to create generic functions
+	
+Accept values
+	function add(x, y, callback){
+		var z = x + y;
+		callback(z);
+	}
+	add(10, 20, function(value) { console.log('result is ' + value) })
+	
+Return values
+	function welcome(callback){
+		var name = callback();
+		console.log('Welcome to Demo, ' + name);
+	}
+	welcome(function() { return "Karthik"; }) => Welcome to Demo, Karthik
+	
+	
+var students = [
+	{ name: 'Bharath', age: 20, city: 'Hyderabad'},
+	{ name: 'Venkat', age: 25, city: 'Hyderabad'},
+	{ name: 'Kavya', age: 30, city: 'Hyderabad'},
+	{ name: 'Meetu', age: 21, city: 'Delhi'},
+	{ name: 'Prasad', age: 2, city: 'Delhi'}
+];
+
+function filterByAge(students, age){
+	for(var student of students){
+		if(student.age > age) {
+			console.log(student.name + ", " + student.age + ", " + student.city);
+		}
+	}
+}
+filterByAge(students, 20) => 3 rows
+
+function filterByCity(students, city){
+	for(var student of students){
+		if(student.city == city) {
+			console.log(student.name + ", " + student.age + ", " + student.city);
+		}
+	}
+}
+filterByCity(students, 'Hyderabad') => 3 rows
+
+function filterBy(students, callback){
+	for(var student of students){
+		if(callback(student)) {
+			console.log(student.name + ", " + student.age + ", " + student.city);
+		}
+	}
+}
+
+filterBy(students, function(){ return true });
+filterBy(students, function(student){ return student.age > 20 });
+filterBy(students, function(student){ return student.city == 'Hyderabad' });
+
+function printStudents(students){
+	for(var student of students){
+		console.log(student.name + ", " + student.age + ", " + student.city);
+	}
+}
+
+function welcomeStudents(students){
+	for(var student of students){
+		console.log('Welcome to ' + student.name);
+	}
+}
+
+function forEach(students, callback){
+	for(var student of students){
+		callback(student);
+	}
+}
+
+forEach(students, function(student) { console.log(student.name + ", " + student.age + ", " + student.city); });
+forEach(students, function(student) { console.log('Welcome to ' + student.name); });
+
+function filterBy(students, callback){
+	for(var student of students){
+		if(callback(student)) {
+			console.log(student.name + ", " + student.age + ", " + student.city);
+		}
+	}
+}
+
+Array.prototype.filterBy = function(callback){
+	for(var student of this){
+		if(callback(student)) {
+			console.log(student.name + ", " + student.age + ", " + student.city);
+		}
+	}
+}
+students.filterBy(function(student){ return student.age > 20 });
+students.filterBy(function(student){ return student.city == 'Hyderabad' });
+
+Array.prototype.forEach = function(callback){
+	for(var student of this){
+		callback(student);
+	}
+}
+students.forEach(function(student) { console.log(student.name + ", " + student.age + ", " + student.city); });
+students.forEach(function(student) { console.log('Welcome to ' + student.name); });
+
+Array.prototype.filterBy = function(callback){
+	var filteredItems = [];
+	for(var student of students){
+		if(student.age > 25){
+			filteredItems.push(student);
+		}
+	}
+	return filteredItems;
+}
+
+Array.prototype.filterBy = function(callback){
+	var filteredItems = [];
+	for(var item of this){
+		if(callback(item)){
+			filteredItems.push(item);
+		}
+	}
+	return filteredItems;
+}
+students.filterBy(function(student) { return student.age > 20 })
+students.filterBy(function(student) { return student.city == 'Hyderabad' });
+
+students.filterBy(function(student) { return student.age > 20 } ).forEach(function(student) { console.log('Welcome to Demo, ' + student.name)} );
+
+students.filterBy(student => student.age > 20 ).forEach(student => console.log('Welcome to Demo, ' + student.name));
+
+students.filterBy(student => student.age > 20 ).filterBy(student => student.city == 'Hyderabad').forEach(student => console.log('Welcome to Demo, ' + student.name))
+
+
+// student can be replaced with any variable name
+students.filterBy(s => s.age > 20 ).filterBy(s => s.city == 'Hyderabad').forEach(s => console.log('Welcome to Demo, ' + s.name))
+
+var ageCondition = a => a.age > 20
+var cityCondition = a => a.city == 'Hyderabad'
+var print = a => console.log('Welcome to Demo, ' + a.name + ', ' + a.city);
+students.filterBy(ageCondition).filterBy(cityCondition).forEach(print)
+
+
+https://www.w3schools.com/js/js_array_methods.asp
