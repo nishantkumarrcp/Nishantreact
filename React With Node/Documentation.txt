@@ -1,0 +1,105 @@
+
+Node + Http => Web
+Node + Express => Rest API
+
+Node in React => Bundle 
+					Cached
+					Merged into single file
+					Copy required functions
+					Compressed
+					
+React =>
+	React with HTML
+	React with Node
+	React with Java/Asp.net/Python
+	
+BoilerPlate => Common Code, Initial Code
+BoilerPlate Generator => create-react-app
+
+create-react-app => script to generate a project
+Installing create-react-app globally by using below command.
+npm install -g create-react-app
+
+MERN =>  npm install -g mern-cli
+Angular => npm install -g @angular/cli
+RN => npm install -g create-react-native-app
+
+
+https://reactjs.org/
+
+Generating a Project => 
+	create-react-app projectName 
+	in latest version of node use, below command.(not to worry, either 1 of these 2 will work. if one doesnt, try other )
+	npx create-react-app projectName 
+
+create-react-app portaldemo
+
+Opening Project
+	Visual Studio Code => https://code.visualstudio.com/
+	Atom
+	Nuclide
+
+Project Structure
+node_modules => Modules get installed into this folder
+package.json
+	Scripts
+		start => Start of the project using WebPack
+		build => to generate bundle which can be deployed directly
+		test => running Tests
+		eject => it will come out of react-scripts
+registerServiceWorker => caching resources in the browser
+
+Starting Point
+public/index.html
+src/index.js
+
+Actual Starting Point 
+src/App.js
+
+ES5
+	var React = require('react');
+	module.exports = App;
+ES6
+	import React from 'react';
+	export App; => import { App } from './app.js'
+	export default App; => import App1 from './app.js'
+	
+
+	
+Running Project
+	npm run start
+
+React-Scripts
+	takes care of important modules like webpack, nodeman
+	
+	
+React in 2014
+	cd portaldemo
+	npm init
+	npm install react
+	npm install react-dom
+	create index.html with root id
+	create js and have render logic
+	add js to html
+	create start.js file where it uses http to read index.html and listen in 3000 port
+	
+React before react-scripts
+	create-react-app portaldemo
+		react
+		react-dom
+		webpack
+		nodeman
+		babel
+	start.js for reading html and opening port
+
+React after react-scripts
+	create-react-app portaldemo
+		react
+		react-dom
+		react-scripts
+
+Adding Module
+	npm install getNews
+	copy getNews in dependency section of package.json and run npm install
+	
+	
