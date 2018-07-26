@@ -98,8 +98,42 @@ React after react-scripts
 		react-dom
 		react-scripts
 
-Adding Module
-	npm install getNews
-	copy getNews in dependency section of package.json and run npm install
+Adding Module - 2 options
+	1. npm install getNews
+	2. copy getNews in dependency section of package.json and run npm install
 	
+npm run start
+npm run build
+npm run test
+npm run eject
+
+Project Structure
+	containers => pages
+	components => reusable components across multiple pages
+	data => static data
+	util => helper functions
+	
+npm - Modules
+Commands
+	add - npm install moduleName
+	update - npm update moduleName
+	delete - npm uninstall moduleName
+
+1. Installing dependencies one by one
+	npm install react
+	npm install react-dom
+
+2. Installing multiple dependencies with single command
+	npm install react react-dom
+
+Points to remember
+1. It installs modules inside node_modules folder.
+2. It installs submodules required for that module.
+3. In each module, there should be package.json.
+4. We will never checkin node_modules folder. So when we download a project from source control, we must run command npm install to install all dependencies.
+5. Module can be added using npm install moduleName or add module manually to dependencies object of package.json and run npm install command.
+6. save is attribute to be used to insert module into dependencies section of package.json
+	npm install react --save
+7. save-dev is attribute to be used to insert module into devDependencies section of package.json. These modules I need in development stage only.
+	npm install jest --save-dev
 	
