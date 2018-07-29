@@ -136,4 +136,19 @@ Points to remember
 	npm install react --save
 7. save-dev is attribute to be used to insert module into devDependencies section of package.json. These modules I need in development stage only.
 	npm install jest --save-dev
+
+Routing
+	react-router-dom
+
+npm install react-router-dom --save
+yarn add react-router-dom
+
+Routers
+	BrowserRouter /r1 /r2 /r3
+	HashRouter #r1 #r2 #r3 
 	
+react-router-dom is a react component where it uses javascript history object for Routing
+
+history.push('/r2')
+
+https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
