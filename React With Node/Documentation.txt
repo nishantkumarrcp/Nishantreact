@@ -152,3 +152,49 @@ react-router-dom is a react component where it uses javascript history object fo
 history.push('/r2')
 
 https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+
+Stateful vs Stateless Component
+
+Stateful => Tracking enabled for state level variables
+			using ES6 class
+			using this keyword
+
+Stateless => No Tracking
+			using functions
+			Component will load faster than Stateful
+			dont use this keyword
+
+
+1. Use Stateful Components only if there is need of partial refresh on updating variables
+
+Stateful
+	class Header extends React.Component {
+		render(){
+			return <div>{this.props.title} Header</div>;
+		}
+	}
+
+Stateless
+	const Header = (props) => <div>{props.title} Header</div>
+
+	const Header = ({ title }) => <div>{props.title} Header</div> 
+
+	with default keyword
+	export default ({ title }) => <div>{title} Header</div>;
+
+Notes on Styles
+	Dont use same tag or classnames across multiple css files. if used, those will be collided and overided
+
+Adding Images
+1. add images to public folder and use as html standard
+	adv: 
+		same syntax as html
+		ability to configure in backend and get images dynamically
+	dis: all files will be copied to bundle
+2. add images inside images folder of src folder and import images in the beginining of the file
+	adv:
+		copies only used images(ie imported images)
+	dis:
+		fixed set of data and cant load dynamically
+		syntax changes
+		we must import in the beginining of the file
