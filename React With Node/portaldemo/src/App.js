@@ -9,6 +9,8 @@ import StudentScreen from './containers/student/list';
 import HomeScreen from './containers/home';
 import LoginScreen from './containers/login';
 import UnImplemented from './containers/unimplemented';
+import RestaurantScreen from './containers/restaurants';
+import LocationScreen from './containers/location';
 
 class App extends Component {
   render() {
@@ -17,6 +19,8 @@ class App extends Component {
         <Route path="/" exact component={LoginScreen} />
         <Route path="/home" component={HomeScreen} />
         <Route path="/register" component={RegistrationScreen} />
+        <Route path="/restaurants" component={RestaurantScreen} />
+        <Route path="/location" component={LocationScreen} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );

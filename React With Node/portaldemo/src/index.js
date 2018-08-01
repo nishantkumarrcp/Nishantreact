@@ -8,9 +8,9 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 
-//ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 
 
-ReactDOM.render(<HashRouter><App /></HashRouter>, document.getElementById('root'));
+//ReactDOM.render(<HashRouter><App /></HashRouter>, document.getElementById('root'));
 
 registerServiceWorker();

@@ -198,3 +198,63 @@ Adding Images
 		fixed set of data and cant load dynamically
 		syntax changes
 		we must import in the beginining of the file
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(Demo);
+
+
+function geolocated(options){
+	var isGeolocationAvailable = true;
+	return function(Component){
+		return <Component {...options} isGeolocationAvailable />
+	}
+}
+
+// Sample of ...
+class Test extends React.Component {
+	render() {
+		const { name, age, city, state, gender } = this.props;
+	}
+}
+
+class Test2 extends React.Component {
+	render() {
+		/*const { name, age, city, state } = this.props;
+		return <Test name={name} age={age} city={city} />*/
+		
+		return <Test {...this.props} gender="M" age={30} />
+	}
+}
+
+<Test2 name="Omesh" age={20} city="Hyderabad" state="Telangana" />
+
+API
+	Registration => username, password, city
+	Login => username, password
+	Students => retrieve 10 students
+	UpdateStudent
+	DeleteStudent
+	AddStudent
+	
+	
+Life Cycle
+	constructor => 
+		This is triggerd in the beginning when component is consumed.
+		used for setting default values
+	componentWillMount =>
+		This is triggerd before render method ie when component is ready to render.
+		used for subscriptions to channels, bluetooth connectivity
+	render => 
+		This is triggerd when rendering is started.
+		used for actual view or rendering the view
+	componentDidMount => 
+		This is triggerd when rendering is finished.
+		used for making backend calls to load actual data
+	componentWillUnMount =>
+		This is triggerd when component is going to end/kill
+		used for desubscriptions
+		
+		
