@@ -11,6 +11,7 @@ import LoginScreen from './containers/login';
 import UnImplemented from './containers/unimplemented';
 import RestaurantScreen from './containers/restaurants';
 import LocationScreen from './containers/location';
+import SurveyScreen from './containers/survey';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <Route path="/register" component={RegistrationScreen} />
         <Route path="/restaurants" component={RestaurantScreen} />
         <Route path="/location" component={LocationScreen} />
+        <Route path="/survey" component={SurveyScreen} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );

@@ -257,4 +257,77 @@ Life Cycle
 		This is triggerd when component is going to end/kill
 		used for desubscriptions
 		
+Promise
+	
+Asynchronous Process => Its a process which runs in background, parallel to the main process and Main process is not dependent on it.
+
+Promise is used to handle asynchronous process.
+Promise is an object having 2 outcomes. 1. success 2. failure
+	if success, then block is executed else catch block is executed
+Ex: connecting to bluetooth
+		connectBluetooth()
+		.then(function(response) {
+			alert('Bluetooth is connected');
+		})
+		.catch(function(error){
+			alert('Connection failed with reason' + error);
+		});
+	backend call to fetch data
+		fetchData('xyz.com/getStudents')
+			.then(response => 
+				{ 
+					var students = response.data;
+					// add to table
+				})
+			.catch(error => alert('Retrieving students failed'))
+	
+	TakeHelp({
+	name: 'XYZ',
+	action: 'Collect Money',
+	amount: 10k
+}).then(function(response){}).catch(function(error){});
+
+response = {
+	status: 'Success',
+	data: [ {}, {}, {}]
+	total : 3
+}
+
+// multiple promises 
+	if outcome of one promise is giving new promise, then one more then block is needed
+foodOrder()
+	.then(resonse => {
+		alert(resonse.status); .... food is ready
+		return collectFood();
+	}
+	.then(resonse => {
+		alert(resonse.status); ... started delivery
+		return deliverFood();
+	}
+	.then(response => {
+		alert(resonse.status); ... item delivered
+	}
+	.catch(error => {
+		alert(error);
+	});
+	
 		
+Pending things
+	Google Authentication
+	Custom Authentication and Authorization
+	Backend Calls
+	CRUD Operations
+	How to choose Modules
+	AutoComplete Google Map
+	Promises
+	Custom Routing
+	Jquery
+	ServerSide Pagination
+	Material UI
+	Dashboard samples from third party
+	
+	
+
+	
+	
+	
