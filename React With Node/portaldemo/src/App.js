@@ -12,6 +12,7 @@ import UnImplemented from './containers/unimplemented';
 import RestaurantScreen from './containers/restaurants';
 import LocationScreen from './containers/location';
 import SurveyScreen from './containers/survey';
+import AppBarScreen from './containers/appbardemo';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
         <Route path="/restaurants" component={RestaurantScreen} />
         <Route path="/location" component={LocationScreen} />
         <Route path="/survey" component={SurveyScreen} />
+        <Route path="/materialUI" component={AppBarScreen} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );
