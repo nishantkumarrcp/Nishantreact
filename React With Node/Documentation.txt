@@ -336,6 +336,70 @@ Choosing Modules from internet
 	
 npm install react-gmaps --save => 1.9 version
 npm install react-gmaps@1.6.0 => 1.6.0 version
+
+Navigation Params
+	Params
+	Query/Search string
+	
+1.Params
+// passing params => 
+Adv:
+	for security purposes, we can use this as params are not shown in query string
+Dis:
+	Refresh will not work
+	
+history.push({
+	pathname: 'home',
+	params: { username: 'Karthik', age: 20 }
+});
+
+var params = this.props.location.params;
+console.log(params.username + ', with age ' + params.age);
+
+2. Query/Search string
+// passing as search params => ie in query string
+Adv:
+	supports refresh feature
+
+https://github.com/mkrishna2025/Routing
+history.push({
+	pathname: 'home',
+	search: 'username=Karthik&age=20',
+});
+const queryParams = new URLSearchParams(this.props.location.search);
+console.log(queryParams.get('username') + ', with age ' + queryParams.get('age'));
+
+<a href='google.com?username=karthik'>Google</a>
+
+<Link to={{
+          pathname: '/google.com',
+          search: username=karthik,
+          params: { secretAccessKey: '123456' }
+        }}> Google </Link>
+
+
+page 1 => username
+page 2
+page 3 => want to access username in this so it has to pass to page 2 and then pass to page 3. In order to avoid this, we can place them in global store.
+
+Cache/Storage => can be stored as key value pairs	
+	SessionStorage => values cleared once browser is closed
+	LocalStorage => Manually need to be cleared
+	Adding
+		localStorage.setItem('userName', 'Prakash')
+		sessionStorage.setItem('userName', 'Divya')
+	Retrieving 
+		localStorage.getItem('userName')
+		sessionStorage.getItem('userName')
+	Removing
+		localStorage.removeItem('userName')
+		sessionStorage.removeItem('userName')
+	
+	Values can never be object
+	-- Adding Object
+	var user = { fn: 'Prakash', ln: 'Kumar'};
+	sessionStorage.setItem('user1', JSON.stringify(user));
+	JSON.parse(sessionStorage.getItem('user1'));
 	
 Pending things
 	Google Authentication
@@ -351,7 +415,7 @@ Pending things
 	Material UI
 	Dashboard samples from third party
 	
-	
+
 
 	
 	
