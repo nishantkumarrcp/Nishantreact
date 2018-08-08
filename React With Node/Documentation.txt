@@ -401,19 +401,52 @@ Cache/Storage => can be stored as key value pairs
 	sessionStorage.setItem('user1', JSON.stringify(user));
 	JSON.parse(sessionStorage.getItem('user1'));
 	
-Pending things
-	Google Authentication
-	Custom Authentication and Authorization
-	Backend Calls
-	CRUD Operations
-	How to choose Modules
-	AutoComplete Google Map
-	Promises
-	Custom Routing
-	Jquery
-	ServerSide Pagination
-	Material UI
-	Dashboard samples from third party
+https://reactjs.org/docs/react-api.html
+https://reactjs.org/docs/reconciliation.html
+https://auth0.com/
+
+<Route exact path="/" component={Login} />
+
+const CustomRoute = (props) => <Route {...props} />
+<CustomRoute exact path="/" component={Login} />
+ 
+function Route(options){
+	const { exact, path, component } = options;
+	
+	return .....
+}
+
+function CustomRoute(options){
+	const { exact, path, component } = options;
+	
+	return <Route exact={exact} path={path} component={component}/>
+}
+
+function CustomRoute(options){
+	const { component: DComponent, ...rest } = options;
+	
+	return <Route {...rest} component={DComponent} />
+}
+
+function AuthenticatedRoute(options){
+	const { component: DComponent, ...rest } = options;
+	if(sessionStorage.getItem('isLoggedIn') == 'true'){
+		return <Route {...rest} component={DComponent} />
+	}else {
+		<Redirect to="/login" />
+	}
+	
+}
+
+function MastePageRoute(options){
+	const { component: DComponent, ...rest } = options;
+	
+	
+	return <Route {...rest} component={<MasterPage>DComponent</MasterPage>} />
+}
+
+https://github.com/mkrishna2025/REACT_002/blob/master/React%20With%20Node/feedbacksystem/src/App.js
+
 	
 
 
