@@ -1,0 +1,58 @@
+Users
+	A has 10k
+ 	B
+	C want 5k
+	D
+	
+Redux
+
+// Action Object
+const depositAmount = {
+	type: 'Deposit',
+	amount: 10000
+}
+
+// Reducer => its a simple function
+const InitialState = { total: 0 };
+const reducer = function(state = InitialState, action){
+	if(action.type == 'Deposit') {
+		//state.total = state.total + action.amount;
+		//return state;
+		return { ...state, total: state.total + action.amount };
+	}
+	if(action.type == 'WithDrawal'){
+		//state.total = state.total - action.amount;
+		//return state;
+		return { ...state, total: state.total - action.amount };
+	}
+	return state;
+}
+
+// Creating Store => use helper method of createStore and pass reducer as input
+var store = createStore(reducer);
+
+// Triggering the action => use helper method dispatch present in store to trigger the action.
+// 1
+store.dispatch(depositAmount);
+
+// 2
+store.dispatch({
+	type: 'Deposit',
+	amount: 10000
+});
+
+// 3
+const addDeposit = amount => {
+	type: 'Deposit',
+	amount: amount
+}
+
+store.dispatch(addDeposit(10000));
+
+getState is helper method of store which returns current state
+store.getState() will return { total: 10000 }
+
+https://www.valentinog.com/blog/react-redux-tutorial-beginners/#React_Redux_tutorial_who_this_guide_is_for
+React Redux tutorial: getting to know the Redux store
+
+

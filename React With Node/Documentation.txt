@@ -447,6 +447,9 @@ function MastePageRoute(options){
 
 https://github.com/mkrishna2025/REACT_002/blob/master/React%20With%20Node/feedbacksystem/src/App.js
 
+
+https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
+
 	
 
 
