@@ -1,0 +1,63 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/5.0.7/react-redux.min.js"></script>
+
+
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		// Stateful
+		class Test extends React.Component {
+			static propTypes = {
+				dispatch: PropTypes.func.isRequired
+			};
+			render() {
+				const { items } = this.props;
+				return <div>
+					<input type='text' onChange={event => this.todo = event.target.value } />
+					<input type='button' value='Add' onClick={event => this.props.dispatch(add(this.todo)) } />
+					<ul>
+						{items.map(item => <li>{item}</li>)}
+					</ul>
+				</div>
+			}
+		}
+		
+		// Actions
+		const add = item => { 
+								return { type: 'Add_ToDo', payload: item }
+							};
+		
+		const mapStateToProps = (state) => {
+			const { todos } = state;
+			return { 
+				items: todos
+			};
+		}
+		
+		const TestRedux = ReactRedux.connect(mapStateToProps)(Test);
+		
+		const reducer = function(state = { todos: [] }, action){
+			switch(action.type) {
+				case 'Add_ToDo': {
+					return {...state, todos: [...state.todos, action.payload ]}
+				}
+			}	
+			return state;
+		}
+		
+		const reduxStore = Redux.createStore(reducer);
+		
+		ReactDOM.render(<ReactRedux.Provider store={reduxStore}>
+							<TestRedux/>
+						</ReactRedux.Provider>, document.getElementById('root'));
+	</script>
+</body>
+</html>
